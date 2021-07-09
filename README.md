@@ -7,26 +7,32 @@ Parse a given `npm` script command from `package.json` & return information.
 - & What the final command run is
 
 Useful for parsing dependencies actually used and figuring out wtf is happening in a complex `package.json`.
+It supports extracting values from npm-run-all.
 
 ## Usage
 
 ```js
-const path = require('path')
-const util = require('util')
-const parse = require('./lib')
+const path = require("path");
+const util = require("util");
+const parse = require("@netlify/parse-npm-script");
+const { readFileSync } = require("fs-extra");
 
-/* path to your package.json file */
-const packagePath = path.join(__dirname, 'tests/fixtures/one.json')
+/* your package.json file */
+const packageJSON = readFileSync(
+  path.join(__dirname, "tests/fixtures/one.json")
+);
 
 async function runParser() {
-  const parsed = await parse(packagePath, 'npm run build')
-  console.log(util.inspect(parsed, {
-    showHidden: false,
-    depth: null
-  }))
+  const parsed = await parse(packageJSON, "npm run build");
+  console.log(
+    util.inspect(parsed, {
+      showHidden: false,
+      depth: null,
+    })
+  );
 }
 
-runParser()
+runParser();
 
 /* Parsed contents
 {
