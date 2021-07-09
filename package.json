@@ -1,6 +1,6 @@
 {
   "name": "@netlify/parse-npm-script",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "Parse npm package script to see how they resolve",
   "main": "lib/index.js",
   "files": [
