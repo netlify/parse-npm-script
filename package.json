@@ -1,12 +1,11 @@
 {
-  "name": "parse-npm-script",
+  "name": "@netlify/parse-npm-script",
   "version": "0.0.4",
   "description": "Parse npm package script to see how they resolve",
   "main": "lib/index.js",
   "files": [
     "lib",
     "package.json",
-    "package-lock.json",
     "README.md"
   ],
   "scripts": {
@@ -21,5 +20,9 @@
   "license": "MIT",
   "devDependencies": {
     "ava": "^2.1.0"
+  },
+  "dependencies": {
+    "minimatch": "^3.0.4",
+    "shell-quote": "^1.7.2"
   }
 }
